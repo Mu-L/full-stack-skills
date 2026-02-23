@@ -6,9 +6,9 @@
 // package.json
 {
   "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "antd": "^4.24.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "antd": "^6.3.0"
   }
 }
 ```
