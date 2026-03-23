@@ -20,6 +20,81 @@
 
 > **说明：** 当前仓库内共有 **42 个技能组目录**、**421 个 `SKILL.md` 文件**；其中 Marketplace 当前发布 **40 个插件**、共 **410 条技能路径**。未进入 Marketplace 的仓库内技能组为 `threejs-skills` 与 `vscode-skills`。
 
+## ⚡ 5 分钟安装与转换示例
+
+如果你只想尽快把仓库里的 skills 安装到本地项目或其它平台，按下面的最短路径执行即可。
+
+### 1. 安装 `fskill`
+
+```bash
+git clone https://github.com/partme-ai/full-stack-skills.git
+cd full-stack-skills
+npm install -g ./adapters
+fskill --version
+```
+
+### 2. 查看平台与审计仓库
+
+```bash
+fskill platforms
+fskill audit
+```
+
+### 3. 默认安装到当前项目 `.agents/skills/`
+
+```bash
+mkdir demo-project && cd demo-project
+fskill install --skills-dir ../full-stack-skills/skills
+```
+
+这条命令会把 skills 安装到当前项目的 `.agents/skills/`，适用于 `amp`、`kimi-cli`、`replit`、`universal`、`cursor`、`codex`、`cline`、`warp`、`opencode` 等标准路径兼容平台。
+
+### 4. 安装到 Cursor
+
+```bash
+fskill install --platform cursor --scope project --skills-dir ../full-stack-skills/skills
+```
+
+- **项目级路径**：`.agents/skills/`
+- **全局路径**：`~/.cursor/skills/`
+
+如需安装到 Cursor 全局目录：
+
+```bash
+fskill install --platform cursor --scope global --skills-dir ./skills
+```
+
+### 5. 导出全部平台目录
+
+```bash
+cd full-stack-skills
+fskill convert --platform all --output ./adapters-output
+```
+
+导出结果会按平台写入：
+
+```text
+adapters-output/<platform>/<project-path>/<skill-name>/
+```
+
+### 6. 常用场景
+
+```bash
+# 安装到 Claude Code 项目目录
+fskill install --platform claude-code --scope project --skills-dir ./skills
+
+# 安装到 Antigravity 全局目录
+fskill install --platform antigravity --scope global --skills-dir ./skills
+
+# 只安装指定 skill
+fskill install --platform cursor --scope global --skills-dir ./skills --skill react --skill vue3
+```
+
+更多适配器细节请直接查看：
+
+- [平台适配器工具](adapters/README.md)
+- [跨平台使用指南](PLATFORM_GUIDE.md)
+
 ## 什么是 Skills？
 
 Skills 是由说明、脚本和资源组成的文件夹，Claude 会按需动态加载它们，以提升在特定任务上的表现。Skills 用于以可复用的方式教会 Claude 完成具体工作，例如：按团队规范创建文档、执行特定技术流程、沉淀设计系统知识，或自动化重复性工程任务。

@@ -10,6 +10,81 @@ A grouped Agent Skills repository for Claude Code, Claude.ai, and compatible Age
 
 > **Note:** This repository is maintained as a grouped skills catalog. The current documentation follows the actual `skills/` directory layout and `.claude-plugin/marketplace.json` rather than older category-based packaging.
 
+## ⚡ 5-Minute Install and Conversion
+
+If you want the shortest path to install or convert skills for local projects and other platforms, use the workflow below.
+
+### 1. Install `fskill`
+
+```bash
+git clone https://github.com/partme-ai/full-stack-skills.git
+cd full-stack-skills
+npm install -g ./adapters
+fskill --version
+```
+
+### 2. List platforms and audit the repository
+
+```bash
+fskill platforms
+fskill audit
+```
+
+### 3. Install to the default `.agents/skills/` path
+
+```bash
+mkdir demo-project && cd demo-project
+fskill install --skills-dir ../full-stack-skills/skills
+```
+
+This installs skills into the current project's `.agents/skills/`, which works for standard-path platforms such as `amp`, `kimi-cli`, `replit`, `universal`, `cursor`, `codex`, `cline`, `warp`, and `opencode`.
+
+### 4. Install to Cursor
+
+```bash
+fskill install --platform cursor --scope project --skills-dir ../full-stack-skills/skills
+```
+
+- **Project path**: `.agents/skills/`
+- **Global path**: `~/.cursor/skills/`
+
+To install into Cursor’s global directory:
+
+```bash
+fskill install --platform cursor --scope global --skills-dir ./skills
+```
+
+### 5. Export all platform layouts
+
+```bash
+cd full-stack-skills
+fskill convert --platform all --output ./adapters-output
+```
+
+Outputs are written as:
+
+```text
+adapters-output/<platform>/<project-path>/<skill-name>/
+```
+
+### 6. Common scenarios
+
+```bash
+# Install into a Claude Code project
+fskill install --platform claude-code --scope project --skills-dir ./skills
+
+# Install into Antigravity global directory
+fskill install --platform antigravity --scope global --skills-dir ./skills
+
+# Install only selected skills
+fskill install --platform cursor --scope global --skills-dir ./skills --skill react --skill vue3
+```
+
+For detailed adapter behavior, use:
+
+- [Adapter CLI reference](adapters/README.md)
+- [Cross-platform usage guide](PLATFORM_GUIDE.md)
+
 ## What are Skills?
 
 Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete repeatable tasks in a reusable way, whether that means documentation workflows, frontend implementation, system design, testing, or delivery automation.
