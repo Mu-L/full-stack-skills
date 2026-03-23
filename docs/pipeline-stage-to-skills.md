@@ -69,7 +69,7 @@
 | 后端（Java/Node 等） | ddd4j-project-creator, spring-boot, nestjs 等 | full-stack-skills | DDD4j；Spring Boot；NestJS |
 | 实现（代码落地） | speckit-implement | speckit-agent-skills（可选） | Spec Kit：按规格与任务执行实现 |
 
-**说明**：**桌面/跨平台**开发可选用 [tauri-skills](https://github.com/partme-ai/tauri-skills)（Tauri 应用开发）。**Node 版本管理**等基础技能见本仓库 **nvm-install**、**nvm-setup**、**nvm-usage-basics** 等（详见 [docs/skills-ecosystem.md](skills-ecosystem.md)）。
+**说明**：**桌面/跨平台**开发可选用外部 [tauri-skills](https://github.com/partme-ai/tauri-skills)（Tauri 应用开发；本仓库已含 `skills/tauri-skills/`）。**Node 版本管理（nvm）** 技能已落地：本仓库 `skills/nvm-skills/`（15 个技能），marketplace 插件 **nvm-skills**；详见 [docs/nvm-skills.md](nvm-skills.md) 与 [skill-group-mapping.md](skill-group-mapping.md)。
 
 ---
 

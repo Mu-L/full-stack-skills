@@ -12,13 +12,16 @@
 
 ### 目录结构
 
+本仓库技能路径为 **`skills/<组目录>/<技能名>/`**（例如 `skills/vue-skills/vue3/`、`skills/threejs-skills/threejs-animation/`），与 `marketplace.json` 中 `skills[]` 路径一致。
+
 ```
 skills/
-  {skill-name}/           # kebab-case directory name
-    SKILL.md              # Required: skill definition
-    scripts/              # Required: executable scripts
-      {script-name}.sh    # Bash scripts (preferred)
-  {skill-name}.zip        # Required: packaged for distribution
+  <group>-skills/         # 组目录，如 vue-skills、tauri-skills、document-skills
+    {skill-name}/         # kebab-case，与 SKILL.md frontmatter name 一致
+      SKILL.md            # 必需
+      examples/           # 可选
+      references/         # 可选
+      scripts/            # 可选
 ```
 
 ### 命名规范
